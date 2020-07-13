@@ -1,0 +1,98 @@
+// https://developers.google.com/sheets/api/quickstart/nodejs
+// https://www.youtube.com/watch?v=MiPpQzW_ya0&t=405s
+// https://console.cloud.google.com/apis/dashboard?project=sheets-api-project-282323&folder=&organizationId=
+https://developers.google.com/identity/protocols/oauth2/scopes
+
+// create an google sheet name "Google Sheets API", add some data to it
+// https://docs.google.com/spreadsheets/d/1AfZZhdp7n4uaI-GdLxnC49o2DPYRyD6Mi5xEMg2ly2g/edit#gid=0
+// this sheet id is 1AfZZhdp7n4uaI-GdLxnC49o2DPYRyD6Mi5xEMg2ly2g
+
+// create a node project on computer
+npm init -y
+
+// install google api
+npm install googleapis@39 --save
+
+// 1). create a google api project on google cloud
+// https://console.cloud.google.com/apis
+// -> dashboard
+//      -> new project
+//          -> name it "sheets-api-project"
+// 2). enable one or more google apis
+//  wait for project to create
+//      -> enable api and services
+//  select / enable "google sheets api"
+// 3). setup credential key
+// create credentials
+//      -> google sheet api
+//      -> web server
+//      -> application data
+//      -> no, not using app engine or compute engine
+//      -> "what credentials do I need?"
+// 4). setup service
+// Create a service email account
+//      -> just a name for your service "servicesheet"
+//      -> role
+//          -> project
+//              -> Editor
+//      -> JSON
+//      -> continue
+// now it will download a credential key json file with very long name
+// the page will show a long email address
+// servicesheet@sheets-api-project-282323.iam.gserviceaccount.com
+// 5). back to the google sheet "Google Sheet API" share with this email
+//      -> share
+//      -> servicesheet@sheets-api-project-282323.iam.gserviceaccount.com
+//          -> don't notifty
+// 6). move credential key json file into project folder on your computer
+// rename it to "keys.json"
+// 7). don't share this file, figure this out later
+// 8). write code to create an authorization client with the given credentials with JWT
+//      -> require "keys.json" into the code
+//      -> create client
+// 9). code for connect the client
+// 10). run the app
+// run the app to connect the client
+//      node index.js
+// 11). after client has been authorize, then connect to google sheet api
+// connect to a sheet
+// set options
+// GET request spreadsheets, wait til its done
+// log the data
+// 12). run the app
+// run the app to see it connect to the sheet (NOTE, we allready shared access to the service email account)
+// base on the return json object, data should be data.data.values
+// run again
+
+
+//////////////////////////////////////////////////////////////////////////////////
+//                      this version of Credentials use OAuth                   //
+//////////////////////////////////////////////////////////////////////////////////
+client name
+gsheetclient1
+client id
+562578476045-m7msbi1j6oqtkbhtgd7llak9hu730vbr.apps.googleusercontent.com
+client secret
+H7zZumgssoTez9wolZws3ERv
+
+first time run the app, it will ask to launch my given live site by click on a link,
+then it will ask for verification code
+    yet a verification code and google api scope will be appended after the normal url
+    EX:
+    https://aspergernetwork.herokuapp.com/?code=4%2F1wHHiEPnW_X0Fo9lAyX2Ju-GMXWQL1VHyvptgLtd1LGGf2sZp_xl4uouOv_7w0VdoyG5XW0U4spqH6q8ZpI3Yus&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive#
+    verification code:
+    4%2F1wHHiEPnW_X0Fo9lAyX2Ju-GMXWQL1VHyvptgLtd1LGGf2sZp_xl4uouOv_7w0VdoyG5XW0U4spqH6q8ZpI3Yus
+
+each time change scope, need to delete "token.json", it will regenerate next time run the app
+
+EX:
+https://docs.google.com/spreadsheets/d/1z0N6x8W1lOXNdlkIHAhV4wJ6zoI524pYQzxIPsQ6Cwg/edit?usp=sharing
+
+
+//////////////////////////////////////////////////////////////////////////////////
+//              try this next time, looks like a simplier way                   //
+//          https://developers.google.com/drive/api/v2/savetodrive              //
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
