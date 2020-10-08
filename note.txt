@@ -2,6 +2,7 @@
 // https://www.youtube.com/watch?v=MiPpQzW_ya0&t=405s
 // https://console.cloud.google.com/apis/dashboard?project=sheets-api-project-282323&folder=&organizationId=
 https://developers.google.com/identity/protocols/oauth2/scopes
+https://travision.dev/blogpost/automate-your-google-sheets-work/
 
 // create an google sheet name "Google Sheets API", add some data to it
 // https://docs.google.com/spreadsheets/d/1AfZZhdp7n4uaI-GdLxnC49o2DPYRyD6Mi5xEMg2ly2g/edit#gid=0

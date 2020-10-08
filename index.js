@@ -25,6 +25,8 @@ fs.readFile("./credentials.json", (err, content) => {
   // Authorize a client with credentials, then call the Google Sheets API.
   authorize(JSON.parse(content), createAndUpdateSheet);
   console.log("ID after created sheet: ", newGSID);
+  // I hardcoded here to wait 4 seconds, now sheet had been created and I assigned id to a varible
+  setTimeout(()=>{ console.log("ID after created sheet: ", newGSID); }, 4000);
 });
 
 /**
@@ -92,6 +94,7 @@ function createAndUpdateSheet(auth) {
       title: "newGSheet" + new Date().getTime()
     }
   };
+  // create an google sheet
   GSID = sheets.spreadsheets.create(
     {
       resource
@@ -99,8 +102,11 @@ function createAndUpdateSheet(auth) {
     (err, spreadsheet) => {
       if (err) {
         console.log(err);
-      } else {
+      } 
+      else {
+        // spreadsheet is the success response from google api, contain sheet id
         newGSID = spreadsheet.data.spreadsheetId;
+        // write to this sheet
         sheets.spreadsheets.values.update(
           {
             spreadsheetId: newGSID,
@@ -123,4 +129,6 @@ function createAndUpdateSheet(auth) {
       }
     }
   );
+  setTimeout(function(){ console.log("ID after to return from create(): ", GSID); }, 3000);
+  // return GSID;
 }
